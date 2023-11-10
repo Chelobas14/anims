@@ -1,0 +1,17 @@
+let canv = document.getElementById("canv");
+let ctx = canv.getContext("2d");
+let w = (canv.width = 1850);
+let h = (canv.height = 800);
+let it = 0;
+let vect1 = 1;
+let vect2 = { x: 1, y: 1 };
+let vect4 = 1;
+let vect5 = 1;
+let posy = h;
+let posx = 0;
+let animCode = 2;
+let isPlay = false;
+let gran = document.getElementById("gran");
+let dx = 0;
+let dy = 0;
+let cols = 0;
