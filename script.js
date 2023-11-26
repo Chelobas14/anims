@@ -54,11 +54,11 @@ let proc = setInterval(function () {
         posy += dy * vect2.y;
       } else if (animCode == 3) {
         posx = (Math.cos(it / 1000) / 2 + 0.5) * (w - box);
-        if (posy > h - box) vect = -1;
+        if (posy > h - box) vect3 = -1;
         if (posy < 0) {
-          vect = 1;
+          vect3 = 1;
         }
-        posy += vect / 5;
+        posy += vect3 / 5;
       } else if (animCode == 4) {
         if (posy > h - box) {
           vect4 = 0;
@@ -72,56 +72,56 @@ let proc = setInterval(function () {
         if (vect4 == 0) {
           posy -= 0.0026 * Math.pow(2.718281828, 0.0026 * posx);
         }
-        if (posx > w - box) vect = -1;
+        if (posx > w - box) vect4 = -1;
         if (posx < 0) {
-          vect = 1;
+          vect4 = 1;
         }
-        posx += vect / 5;
+        posx += vect4 / 5;
       } else if (animCode == 5) {
-        if (posy >= h - box) {
-          vect5 = -1;
+        if (posy > h - box) {
+          vect5.y = -1;
         }
         if (posy < 0) {
-          vect5 = 1;
+          vect5.y = 1;
         }
-        if (vect5 == 1) {
+        if (vect5.y == 1) {
           posy += (3 * (posx - 100) ** 2) / 10 ** 7;
         }
-        if (vect5 == -1) {
+        if (vect5.y == -1) {
           posy -= (3 * (posx - 100) ** 2) / 10 ** 7;
         }
-        if (posx > w - box) vect = -1;
+        if (posx > w - box) vect5.x = -1;
         if (posx < 0) {
-          vect = 1;
+          vect5.x = 1;
         }
-        posx += vect / 5;
+        posx += vect5.x / 5;
       } else if (animCode == 6) {
         if (posy >= h - box) {
-          vect5 = -1;
+          vect6.y = -1;
         }
         if (posy < 0) {
-          vect5 = 1;
+          vect6.y = 1;
         }
         if (posx <= w / 2) {
-          if (vect5 == 1) {
+          if (vect6.y == 1) {
             posy += (3 * (posx - 100) ** 2) / 10 ** 7;
           }
-          if (vect5 == -1) {
+          if (vect6.y == -1) {
             posy -= (3 * (posx - 100) ** 2) / 10 ** 7;
           }
         } else {
-          if (vect5 == 1) {
+          if (vect6.y == 1) {
             posy += (3 * (w - posx - 100) ** 2) / 10 ** 7;
           }
-          if (vect5 == -1) {
+          if (vect6.y == -1) {
             posy -= (3 * (w - posx - 100) ** 2) / 10 ** 7;
           }
         }
-        if (posx > w - box) vect = -1;
+        if (posx > w - box) vect6.x = -1;
         if (posx < 0) {
-          vect = 1;
+          vect6.x = 1;
         }
-        posx += vect / 5;
+        posx += vect6.x / 5;
       }
 
       let red = 255 * (Math.sin(posx / 100) / 2 + 0.5);
@@ -130,11 +130,6 @@ let proc = setInterval(function () {
       green += (Math.random() - 0.5) * 200;
       red += (Math.random() - 0.5) * 200;
       blue += (Math.random() - 0.5) * 200;*/
-      if (animCode == 2) {
-        red = 255 * (Math.sin(cols / 100) / 2 + 0.5);
-        green = 255 - 255 * (Math.sin(cols / 100 + 1) / 2 + 0.5);
-        blue = 255 - red;
-      }
       ctx.fillStyle = "rgb(" + red + ", " + green + ", " + blue + ")";
       ctx.fillRect(posx, posy, box, box);
 
